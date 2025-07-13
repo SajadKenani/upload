@@ -124,7 +124,7 @@ func UploadCompressedVideo(ctx *gin.Context, inputPath, outputPath string) (stri
 }
 
 func UploadHDCompressedVideo(ctx *gin.Context, inputPath, outputPath string) (string, error) {
-	cmd := exec.Command("ffmpeg", "-i", inputPath, "-vf", "scale=720:-2", "-c:v", "libx264", "-crf", "28", outputPath)
+	cmd := exec.Command("ffmpeg", "-i", inputPath, "-vf", "scale=1280:720", "-c:v", "libx264", "-crf", "28", outputPath)
 	cmd.Stdout = os.Stdout
 	cmd.Stdout = os.Stderr
 
